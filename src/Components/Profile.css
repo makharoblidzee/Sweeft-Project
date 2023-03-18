@@ -1,4 +1,6 @@
-.profile {}
+.profile {
+    
+}
 
 .profile-content {
     margin: 10px;
@@ -11,6 +13,7 @@
 .profile-img {
     width: 100%;
     cursor: pointer;
+    height:fit-content
 }
 
 .profile-description {
@@ -26,5 +29,6 @@
 
 a {
 
-    line-height: normal
+    height: fit-content;
+    width: fit-content;
 }

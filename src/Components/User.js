@@ -13,29 +13,11 @@ export default function User() {
   const [friendsData, setFriendsData] = useState([]);
   const [visitedUsers, setVisitedUsers] = useState(null);
 
-  // const handleScroll = (e) => {
-  //   console.log(e)
-  //   const bottom =
-  //     e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
-  //   if (bottom) {
-  //     setUsersNumber(usersNumber + 20);
-  //   }
-
-  //   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-  //     // console.log('oto')
-  //     // user has reached the bottom of the page
-  //     // perform desired action here
-  //   }
-  // };
-
   function handleScroll() {
-    // check if user has reached the bottom of the page
-    // setPageNumber(2);
+
     const { scrollTop, scrollHeight, clientHeight } =
       document.documentElement;
     if (scrollTop + clientHeight >= scrollHeight) {
-      // user has reached the bottom of the page
-      // perform desired action here
       setPageNumber(pageNumber+1)
       
     }
@@ -87,7 +69,7 @@ export default function User() {
       `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}/friends/${pageNumber}/20}`
     )
       .then((response) => {
-        console.log(response)
+
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
@@ -102,7 +84,30 @@ export default function User() {
       });
   }, [pageNumber]);
 
-  console.log(friendsData)
+  useEffect(() => {
+    setFriendsData([])
+    setPageNumber(1)
+    fetch(
+      `http://sweeftdigital-intern.eu-central-1.elasticbeanstalk.com/user/${id}/friends/${pageNumber}/20}`
+    )
+      .then((response) => {
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data1) => {
+        
+        const newData = { ...data1 };
+        setFriendsData((prevData) => [...prevData, newData.list]);
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
+  }, [id]);
+
+
   return (
     <div className="user-page">
       {data ? (
