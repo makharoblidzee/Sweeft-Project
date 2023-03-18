@@ -1,0 +1,69 @@
+.user-page {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+
+}
+
+.user-container {
+    border: 1px solid rgb(197, 197, 197);
+    border-bottom: none;
+    height: auto;
+    /* max-width: 1200px; */
+    width: 1200px;
+    
+    /* height: auto; */
+}
+
+.user-header {
+    display: flex;
+}
+
+.italic-description {
+    font-style: italic;
+}
+
+.span-info {
+    text-decoration: underline;
+}
+
+.profile-picture {
+    padding: 1rem;
+    width: 25%;
+}
+
+.profile-info {
+    width: 60%;
+}
+
+.profile-adress {
+    width: 20%;
+    
+}
+
+.profile-picture-img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-header {
+    padding: 2rem 1rem 0 1rem;
+    height: 25%;
+}
+
+.users-path {
+    display: flex;
+    height: auto;
+    padding: 2rem;
+    max-width: 100%;
+
+    flex-wrap: wrap;
+
+
+}
+.friends{
+    border: 1px solid rgb(197, 197, 197);
+    border-top: none;
+
+}
